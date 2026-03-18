@@ -1,0 +1,71 @@
+{
+    "id": "xt-ehr-eps-conformance",
+    "name": "Xt-EHR Conformance check",
+    "summary" : "Check the conformance of the priority category against the validators provided by the EU Digital Testing Environment.",
+    "description" : "In this test, you are requested to upload a sample of a priority category of document produced by your EHR system. Its conformance will be checked against the FHIR Implementation Guide development in the context of the Xt-EHR Joint Action. This test leverage the EU Digital Testing Environment provided by the European Commission.",
+    "tags": ["Xt-EHR", "EPS", "ePrescription", "eDispensation", "HDR", "Lab report", "Imaging report", "DTE", "No peer"],
+    "testRoles": [ {
+        "name": "Xt-EHR Producer",
+        "capabilities": {
+          "or": [
+            { "capability": "EPS/Producer" },
+            { "capability": "HDR/Producer" },
+            { "capability": "MED_REP/Producer" },
+            { "capability": "IMG_REP/Producer" },
+            {"capability" : "eP/Producer"},
+            {"capability" : "eD/Producer"}
+          ]
+        }
+      } ],
+    "supportedInputs": [
+      {
+        "id": "sample",
+        "type": "FILE",
+        "label": "Content to validate",
+        "required": true
+      }
+    ],
+    "steps": [
+      {
+        "name": "Check conformance",
+        "type": "ITB",
+        "properties": [
+          {
+            "name": "testCase",
+            "type": "STRING",
+            "value": "hl7FhirValidation"
+          },
+          {
+            "name": "systemID",
+            "type": "STRING",
+            "value": "B02A8596X3C79X42CCXBE97X9A07202A3040"
+          },
+          {
+            "name": "actorID",
+            "type": "STRING",
+            "value": "34ED39A5X3C2EX4FEFXAB33X9A6B5391EC6F"
+          },
+          {
+            "name": "executionMode",
+            "type": "STRING",
+            "value": "SYNC"
+          },
+          {
+            "name": "content",
+            "type": "BYTE_ARRAY",
+            "value": "${inputFile}"
+          },
+          {
+            "name": "uploadedFileName",
+            "type": "STRING",
+            "value": "sample.json"
+          },
+          {
+            "name": "itbPayloadMode",
+            "type": "STRING",
+            "value": "USER_INPUT_MAP"
+          }
+        ]
+      }
+    ]
+  }
