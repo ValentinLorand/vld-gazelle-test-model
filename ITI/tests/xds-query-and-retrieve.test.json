@@ -1,25 +1,38 @@
 {
-  "id" : "xds-query-retrieve",
-  "name" : "XDS Query and Retrieve",
-  "summary" : "Test for XDS Query",
-  "tags" : [ "XDS", "ITI-18", "ITI-43" ],
-  "testRoles" : [ {
-    "name" : "Consumer",
-    "capabilities" : {
-      "capability" : "XDS/Document Consumer"
+  "id": "xds-query-and-retrieve",
+  "name": "XDS Query and Retrieve",
+  "summary": "Test for XDS Query",
+  "tags": [
+    "XDS",
+    "ITI-18",
+    "ITI-43"
+  ],
+  "testRoles": [
+    {
+      "name": "Consumer",
+      "capabilities": {
+        "capability": "XDS/Document Consumer"
+      }
+    },
+    {
+      "name": "RegistryRepository",
+      "capabilities": {
+        "and": [
+          {
+            "capability": "XDS/Document Registry"
+          },
+          {
+            "or": [
+              {
+                "capability": "XDS/Document Repository"
+              },
+              {
+                "capability": "XDS-I/Document Source"
+              }
+            ]
+          }
+        ]
+      }
     }
-  }, {
-    "name" : "RegistryRepository",
-    "capabilities" : {
-      "and" : [ {
-        "capability" : "XDS/Document Registry"
-      }, {
-        "or" : [ {
-          "capability" : "XDS/Document Repository"
-        }, {
-          "capability" : "XDS-I/Document Source"
-        } ]
-      } ]
-    }
-  } ]
+  ]
 }
