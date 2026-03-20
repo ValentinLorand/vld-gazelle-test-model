@@ -63,31 +63,31 @@
         {
             "id": "saml_assertion",
             "label": "SAML Assertion",
-            "type": "file",
+            "type": "FILE",
             "required": true
         },
         {
             "id": "xcpd_request",
             "label": "XCPD request",
-            "type": "file",
+            "type": "FILE",
             "required": true
         },
         {
             "id": "xcpd_response",
             "label": "XCPD response",
-            "type": "file",
+            "type": "FILE",
             "required": true
         },
         {
             "id": "iti55_audit_initgw",
             "label": "ITI-55 Audit message [Initiating Gateway]",
-            "type": "file",
+            "type": "FILE",
             "required": true
         },
         {
             "id": "iti55_audit_respgw",
             "label": "ITI-55 Audit message [Responding Gateway]",
-            "type": "file",
+            "type": "FILE",
             "required": true
         }
     ],
