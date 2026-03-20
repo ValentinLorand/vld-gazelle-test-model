@@ -19,7 +19,7 @@
   "supportedInputs": [
     {
       "id": "fhir_base_url",
-      "type": "STRING",
+      "type": "TEXT",
       "label": "FHIR Base URL",
       "required": true
     }
