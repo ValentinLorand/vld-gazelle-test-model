@@ -10,7 +10,7 @@
   ],
   "testRoles": [
     {
-      "name": "MHD Server",
+      "name": "MHD Document Recipient",
       "capabilities": {
         "capability": "MHD/Document Recipient"
       }

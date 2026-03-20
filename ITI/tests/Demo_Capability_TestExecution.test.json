@@ -25,6 +25,12 @@
       "label": "mCSD Directory base URL",
       "required": true,
       "defaultValue": "https://ehealthsuisse.ihe-europe.net/mcsd-simulator/fhir/ch"
+    },
+    {
+      "id": "fhir_base_url",
+      "type": "TEXT",
+      "label": "FHIR Base URL",
+      "required": true
     }
   ],
   "steps": [
@@ -71,28 +77,33 @@
         ]
     },
     {
-      "name": "ITB_Automated_Test_Case_SmartCity",
+      "name": "Executing test case SingleDocument on ITB",
       "type": "ITB",
       "properties": [
         {
           "name": "testCase",
           "type": "STRING",
-          "value": "018_01_01"
+          "value": "SingleDocument"
         },
         {
           "name": "systemID",
           "type": "STRING",
-          "value": "69461385X812CX4CFDX83A0X3D6D54F70FB2"
+          "value": "488F410BX0A71X44C3X82F7XBB0B969FD3E3"
         },
         {
           "name": "actorID",
           "type": "STRING",
-          "value": "CE72C162X6307X41A8X8AD4X9498BDAE7220"
+          "value": "753D8A15X5139X447FX9189X061FBF257204"
         },
         {
           "name": "executionMode",
           "type": "STRING",
           "value": "ASYNC"
+        },
+        {
+          "name": "endpointAddress",
+          "type": "STRING",
+          "value": "${fhir_base_url}"
         }
       ]
     }
