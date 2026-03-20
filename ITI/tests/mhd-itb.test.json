@@ -6,13 +6,11 @@
   "tags": ["MHD", "Preparatory","No peer"],
   "testRoles": [ {
       "name": "MHD Server",
-      "capabilities": {
-        "and": [
-          { "capability": "MHD/Document Responder" },
+      "capabilities": [
           { "capability": "MHD/Document Recipient" }
         ]
       }
-    } ],
+    ],
   "supportedInputs": [
     {
       "id": "fhir_base_url",
