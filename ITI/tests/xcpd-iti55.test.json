@@ -4,10 +4,12 @@
     "summary": "Check the consistency of the ITI-55 transaction, including SAML assertion and produced audit messages.",
     "description": "After you have executed a ITI-55 transaction, both partners provide the required inputs and the test tools will check their conformance and verify that the exchange is consistent.",
     "tags": [
+        "interoperability test",
+        "peer-to-peer",
         "ITI-55",
         "XCPD",
         "ATNA",
-        "XUA"
+        "XUA"        
     ],
     "testRoles": [
         {
@@ -102,7 +104,7 @@
                 {
                     "name": "validationProfile",
                     "type": "STRING",
-                    "value": "eHDSI SAML - HCP Identity Assertion - v1"
+                    "value": "IHE - ITI - XUA"
                 },
                 {
                     "name": "contentToValidate",
@@ -123,7 +125,7 @@
                 {
                     "name": "validationProfile",
                     "type": "STRING",
-                    "value": "[eHDSI HL7v3] - Identification Service Request"
+                    "value": "[ITI-55] Cross Gateway Patient Discovery Request"
                 },
                 {
                     "name": "contentToValidate",
@@ -144,7 +146,7 @@
                 {
                     "name": "validationProfile",
                     "type": "STRING",
-                    "value": "[eHDSI HL7v3] - Identification Service Response"
+                    "value": "[ITI-55] Cross Gateway Patient Discovery Response"
                 },
                 {
                     "name": "contentToValidate",

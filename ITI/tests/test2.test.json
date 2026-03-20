@@ -1,0 +1,100 @@
+{
+  "id": "Demo_Capability_TestExecution",
+  "name": "Demo Capability TestExecution",
+  "summary": "Test Case to demonstrate the mCSD test case possibilities",
+  "description": "This test case is there to demonstrate the capability to execute different test steps (ITB, Simulation and Validation) in one automated test case",
+  "tags": ["ITB", "VALIDATION", "SIMULATION"],
+  "testRoles": [ {
+      "name": "mCSD Server",
+      "capabilities": {
+        "or": [
+          { "capability": "mCSD" }
+        ]
+      }
+    } ],
+  "supportedInputs": [
+    {
+      "id": "mCSD Request file",
+      "type": "FILE",
+      "label": "mCSD Request",
+      "required": true
+    },
+    {
+      "id": "fqdn_mCSD_Server",
+      "type": "TEXT",
+      "label": "mCSD Directory base URL",
+      "required": true,
+      "defaultValue": "https://ehealthsuisse.ihe-europe.net/mcsd-simulator/fhir/ch"
+    }
+  ],
+  "steps": [
+    {
+      "name": "Checking mCSD request",
+      "type": "VALIDATION",
+      "properties": [
+        {
+          "name": "validationService",
+          "type": "STRING",
+          "value": "Matchbox"
+        },
+        {
+          "name": "validationProfile",
+          "type": "STRING",
+          "value": "http://fhir.ch/ig/ch-epr-fhir/StructureDefinition/CH.mCSD.Practitioner"
+        },
+        {
+          "name": "contentToValidate",
+          "type": "BYTE_ARRAY",
+          "value": "${mCSD Request file}"
+        }
+      ]
+    },
+    {
+      "name": "Test_EPR mCSD ITI-130 Directory - Add Update and Delete a Practitioner",
+      "type": "SIMULATION",
+      "properties": [
+        {
+          "name": "simulationService",
+          "value": "mCSD Simulator", 
+          "type": "STRING"
+        },
+        {
+          "name": "sequenceId", 
+          "value": "EPR mCSD ITI-130 Directory - Add Update and Delete a Practitioner", 
+          "type": "STRING"
+        },
+        {
+          "name": "Directory base URL", 
+          "value": "${fqdn_mCSD_Server}",
+          "type": "STRING"
+        }
+        ]
+    },
+    {
+      "name": "ITB_Automated_Test_Case_SmartCity",
+      "type": "ITB",
+      "properties": [
+        {
+          "name": "testCase",
+          "type": "STRING",
+          "value": "018_01_01"
+        },
+        {
+          "name": "systemID",
+          "type": "STRING",
+          "value": "69461385X812CX4CFDX83A0X3D6D54F70FB2"
+        },
+        {
+          "name": "actorID",
+          "type": "STRING",
+          "value": "CE72C162X6307X41A8X8AD4X9498BDAE7220"
+        },
+        {
+          "name": "executionMode",
+          "type": "STRING",
+          "value": "ASYNC"
+        }
+      ]
+    }
+  ]
+}

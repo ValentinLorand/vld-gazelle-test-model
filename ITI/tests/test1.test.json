@@ -1,0 +1,142 @@
+{
+  "id": "test1",
+  "name": "Test number 1",
+  "summary": "This test is not a real test, it's only for dev and qualification purposes",
+  "description": "I'm repeating myself but this test is not a real test it's only for dev and test purposes.",
+  "tags": [
+    "FHIR",
+    "No peer"
+  ],
+  "testRoles": [
+    {
+      "name": "DevelopperFHIR Server",
+      "capabilities": {
+        "or": [
+          {
+            "capability": "MHD/*"
+          },
+          {
+            "capability": "PDQm/*"
+          }
+        ]
+      }
+    }
+  ],
+  "supportedInputs": [
+    {
+      "id": "file_input_1",
+      "type": "FILE",
+      "label": "Just the first file to upload and validate",
+      "required": true
+    },
+    {
+      "id": "file_input_2",
+      "type": "FILE",
+      "label": "Just the second file to upload and validate",
+      "required": true
+    },
+    {
+      "id": "file_input_3",
+      "type": "FILE",
+      "label": "Just the third file to upload and validate",
+      "required": false
+    }
+  ],
+  "steps": [
+    {
+      "name": "First step",
+      "type": "VALIDATION",
+      "properties": [
+        {
+          "name": "validationService",
+          "type": "STRING",
+          "value": "Matchbox"
+        },
+        {
+          "name": "validationProfile",
+          "type": "STRING",
+          "value": "http://hl7.org/fhir/StructureDefinition/CapabilityStatement|4.0.1"
+        },
+        {
+          "name": "contentToValidate",
+          "type": "BYTE_ARRAY",
+          "value": "${file_input_1}"
+        }
+      ]
+    },
+    {
+      "name": "Second step",
+      "type": "VALIDATION",
+      "properties": [
+        {
+          "name": "validationService",
+          "type": "STRING",
+          "value": "Matchbox"
+        },
+        {
+          "name": "validationProfile",
+          "type": "STRING",
+          "value": "http://hl7.org/fhir/StructureDefinition/CapabilityStatement|4.0.1"
+        },
+        {
+          "name": "contentToValidate",
+          "type": "BYTE_ARRAY",
+          "value": "${file_input_2}"
+        }
+      ]
+    },
+    {
+      "name": "Second step",
+      "type": "VALIDATION",
+      "properties": [
+        {
+          "name": "validationService",
+          "type": "STRING",
+          "value": "Matchbox"
+        },
+        {
+          "name": "validationProfile",
+          "type": "STRING",
+          "value": "http://hl7.org/fhir/StructureDefinition/CapabilityStatement|4.0.1"
+        },
+        {
+          "name": "contentToValidate",
+          "type": "BYTE_ARRAY",
+          "value": "${file_input_2}"
+        }
+      ]
+    },
+    {
+      "name": "Simple_CHXDS_ITI-41-42",
+      "type": "SIMULATION",
+      "properties": [
+        {
+          "name": "simulationService",
+          "value": "Mock_XDS_Simulator",
+          "type": "STRING"
+        },
+        {
+          "name": "sequenceId",
+          "value": "Simple_CHXDS_ITI-41-42",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "step4",
+      "type": "ASSERT_EQUALS",
+      "properties": [
+        {
+          "name": "expected",
+          "value": "test",
+          "type": "STRING"
+        },
+        {
+          "name": "actual",
+          "value": "test",
+          "type": "STRING"
+        }
+      ]
+    }
+  ]
+}
