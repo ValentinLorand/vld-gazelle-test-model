@@ -2,7 +2,7 @@
   "id": "test1",
   "name": "Test number 1",
   "summary": "This test is not a real test, it's only for dev and qualification purposes",
-  "description": "I'm repeating myself but this test is not a real test it's only for dev and test purposes.",
+  "description": "I'm repeating myself but this test is not a real test it's only for demo purposes.",
   "tags": [
     "FHIR",
     "No peer"
@@ -33,12 +33,6 @@
       "id": "file_input_2",
       "type": "FILE",
       "label": "Just the second file to upload and validate",
-      "required": true
-    },
-    {
-      "id": "file_input_3",
-      "type": "FILE",
-      "label": "Just the third file to upload and validate",
       "required": false
     }
   ],
@@ -65,48 +59,6 @@
       ]
     },
     {
-      "name": "Second step",
-      "type": "VALIDATION",
-      "properties": [
-        {
-          "name": "validationService",
-          "type": "STRING",
-          "value": "Matchbox"
-        },
-        {
-          "name": "validationProfile",
-          "type": "STRING",
-          "value": "http://hl7.org/fhir/StructureDefinition/CapabilityStatement|4.0.1"
-        },
-        {
-          "name": "contentToValidate",
-          "type": "BYTE_ARRAY",
-          "value": "${file_input_2}"
-        }
-      ]
-    },
-    {
-      "name": "Second step",
-      "type": "VALIDATION",
-      "properties": [
-        {
-          "name": "validationService",
-          "type": "STRING",
-          "value": "Matchbox"
-        },
-        {
-          "name": "validationProfile",
-          "type": "STRING",
-          "value": "http://hl7.org/fhir/StructureDefinition/CapabilityStatement|4.0.1"
-        },
-        {
-          "name": "contentToValidate",
-          "type": "BYTE_ARRAY",
-          "value": "${file_input_2}"
-        }
-      ]
-    },
-    {
       "name": "Simple_CHXDS_ITI-41-42",
       "type": "SIMULATION",
       "properties": [
@@ -123,7 +75,7 @@
       ]
     },
     {
-      "name": "step4",
+      "name": "Simple assert equals step",
       "type": "ASSERT_EQUALS",
       "properties": [
         {
