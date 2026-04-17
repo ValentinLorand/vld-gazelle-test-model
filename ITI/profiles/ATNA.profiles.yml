@@ -1,0 +1,190 @@
+id : ATNA
+name : Audit Trail and Node 
+version : 20.0
+description : 
+  value : "The Audit Trail and Node Authentication (ATNA) Profile specifies the foundational elements needed by all forms of secure systems: node authentication, user authentication, event logging (audit), and telecommunications encryption. It is also used to indicate that other internal security properties such as access control, configuration control, and privilege restrictions are provided."
+status: Final text
+documentation: https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html
+options:
+      - id : RAD_AUDIT_TRAIL_OPTION
+        name : Radiology Audit Trail
+        description : "The Radiology Audit Trail Option provides specific audit requirements for actors in IHE Radiology domain profiles. Actors that support this option shall audit trigger events applicable to its implementation. RAD TF-3: Table 5.1-1 and Table 5.1-2 detail audit events based on the Radiology actor."
+      - id : ATX_TLS_SYSLOG 
+        name : "ATX: TLS Syslog"
+        description : "The ATX: TLS Syslog Option enables sending ATNA audit records using Syslog protocol over TLS."
+      - id : ATX_UDP_SYSLOG
+        name : "ATX: UDP Syslog"
+        description : "The ATX: UDP Syslog Option enables sending ATNA audit records using Syslog protocol over UDP."
+      - id : ATX_FHIR_FEED
+        name : "ATX: FHIR Feed"
+        description : Enables sending ATNA audit records using RESTful capabilities and FHIR resources.
+      - id : STX_NO_SECURE_TRANSPORT
+        name : "STX: No Secure Transport"
+        description : The system must be used on a network that provides secure transport, such as a physically isolated network, Virtual Private Network (VPN), or some other method.
+      - id : STX_SMIME
+        name : "STX: S/MIME"
+        description : The system will utilize S/MIME to protect the message for authentication of sender, restriction to specific recipients, encryption, and integrity protection.
+      - id : STX_TLS1-2_FLOOR_BCP195
+        name : "STX: TLS 1.2 Floor using BCP195"
+        description : "Actors that support this option have the ability to both: operate with the highest level of cyber protection for the TLS-protected communication channel per the IETF Best Current Practice (BCP195 with TLS 1.2 and selected cipher suites), and restrict to the use of TLS version 1.2 [RFC5246] or higher."
+      - id : STX_WS-SECURITY
+        name : "STX: WS-Security"
+        description : The system will utilize WS-Security WS-I Basic Security Profile 1.1 to protect the message for authentication of sender, restriction to specific recipients, encryption, and integrity protection. 
+      - id : STX_HTTPS_IUA
+        name : "STX: HTTPS IUA"
+        description : This configuration utilizes server-side authenticated TLS (also known as https) to authenticate the server to the client and provide communications integrity and encryption; and the IUA Profile to authenticate the client application to the server (IUA Resource Server).
+      - id : RETRIEVE_AUDIT_MSG
+        name : Retrieve Audit messages
+        description : The Retrieve Audit Message Option enables search requests for audit messages based upon message contents using [ITI-81].
+      - id : RETRIEVE_SYSLOG_MSG
+        name : Retrieve Syslog Message
+        description : The Retrieve Syslog Message Option enables search requests for syslog messages based upon syslog metadata using ITI-82.
+      - id : FQDN_VALIDATION_OF_SERVER_CERT
+        name : FQDN Validation of Server Certificate
+        description : The FQDN Validation of Server Certificate Option applies the rules presented in RFC6125 when a client authenticates the server using an X.509 certificate in the context of Transport Layer Security (TLS).
+actors:
+  - id : SN
+    name : Secure Node
+    description : A system unit that validates the identity of any user and of any other node, and determines whether or not access to the system for this user and information exchange with the other node is allowed. Maintains the correct time.
+    supportedTransactions:
+      - transaction : ITI-19
+        optionality : required
+        actAs : initiator
+      - transaction : ITI-19
+        optionality : required
+        actAs : responder
+      - transaction : ITI-20
+        optionality : required
+        actAs : initiator
+    supportedOptions : 
+      - RAD_AUDIT_TRAIL_OPTION
+      - FQDN_VALIDATION_OF_SERVER_CERT
+      - STX_NO_SECURE_TRANSPORT
+      - STX_HTTPS_IUA
+      - STX_SMIME
+      - STX_TLS1-2_FLOOR_BCP195
+      - ATX_FHIR_FEED
+      - ATX_TLS_SYSLOG
+      - ATX_UDP_SYSLOG
+      - STX_WS
+    requires : 
+      - and : 
+        - CT / TIME_CLIENT
+        - or : 
+          - ATNA / SN / ATX_FHIR_FEED
+          - ATNA / SN / ATX_TLS_SYSLOG
+          - ATNA / SN / ATX_UDP_SYSLOG
+        - or : 
+          - ATNA / SN / STX_NO_SECURE_TRANSPORT
+          - ATNA / SN / STX_HTTPS_IUA
+          - ATNA / SN / STX_SMIME
+          - ATNA / SN / STX_TLS1-2_FLOOR_BCP195
+          - ATNA / SN / STX_WS
+  - id : SA
+    name : Secure Application
+    description : The difference between the Secure Node and the Secure Application is the extent to which the underlying operating system and other environment are secured. A Secure Node includes all aspects of user authentication, file system protections, and operating environment security. The Secure Application is a product that does not include the operating environment. The Secure Application provides security features only for the application features. See section 9.7 for the relationships among a Secure Node, Secure Application, and other actors.
+    supportedOptions : 
+      - RAD_AUDIT_TRAIL_OPTION
+      - FQDN_VALIDATION_OF_SERVER_CERT
+      - STX_NO_SECURE_TRANSPORT
+      - STX_HTTPS_IUA
+      - STX_SMIME
+      - STX_TLS1-2_FLOOR_BCP195
+      - ATX_FHIR_FEED
+      - ATX_TLS_SYSLOG
+      - ATX_UDP_SYSLOG
+      - STX_WS
+    supportedTransactions:
+      - transaction : ITI-19
+        optionality : required
+        actAs : initiator
+      - transaction : ITI-19
+        optionality : required
+        actAs : responder
+      - transaction : ITI-20
+        optionality : required
+        actAs : initiator
+    requires : 
+      - and : 
+        - CT / TIME_CLIENT
+      - or : 
+          - ATNA / SN / ATX_FHIR_FEED
+          - ATNA / SN / ATX_TLS_SYSLOG
+          - ATNA / SN / ATX_UDP_SYSLOG
+      - or : 
+        - ATNA / SN / STX_NO_SECURE_TRANSPORT
+        - ATNA / SN / STX_HTTPS_IUA
+        - ATNA / SN / STX_SMIME
+        - ATNA / SN / STX_TLS1-2_FLOOR_BCP195
+        - ATNA / SN / STX_WS
+  - id : ARR
+    name : Audit Record Repository
+    description : A system unit that receives and collects audit records from multiple systems.
+    supportedOptions : 
+      - ATX_FHIR_FEED
+      -  ATX_TLS_SYSLOG
+      -  ATX_UDP_SYSLOG
+    supportedTransactions:
+      - transaction : ITI-20
+        optionality : required
+        actAs : responder
+      - transaction : ITI-81
+        optionality : optional
+        actAs : responder
+      - transaction : ITI-82
+        optionality : optional
+        actAs : responder
+    requires : 
+      - and : 
+        - CT / TIME_CLIENT, 
+        - or : 
+          - ATNA / SN
+          - ATNA / SA
+        - or : 
+          - ATNA / ARR / ATX_FHIR_FEED
+          - ATNA / ARR / ATX_TLS_SYSLOG
+          - ATNA / ARR / ATX_UDP_SYSLOG
+  - id : AUDIT_RECORD_FORWARDER
+    name : Audit Record Forwarder
+    description : This actor filters audit records that have been received and forwards selected audit records to an Audit Record Repository.
+    supportedOptions : 
+      -  ATX_FHIR_FEED
+      -  ATX_TLS_SYSLOG
+      -  ATX_UDP_SYSLOG
+    supportedTransactions:
+      - transaction : ITI-20
+        optionality : required
+        actAs : initiator
+    requires : 
+      - and : 
+        - CT / TIME_CLIENT, 
+        - ATNA / ARR
+        - or : 
+          - ATNA / SN
+          - ATNA / SA
+        - or : 
+          - ATNA / AUDIT_RECORD_FORWARDER / ATX_FHIR_FEED
+          - ATNA / AUDIT_RECORD_FORWARDER / ATX_TLS_SYSLOG
+          - ATNA / AUDIT_RECORD_FORWARDER / ATX_UDP_SYSLOG
+  - id : AUDIT_CONSUMER
+    name : Audit AUDIT_CONSUMER
+    description : Consumes audit log messages.
+    supportedOptions : 
+     -  RETRIEVE_AUDIT_MSG
+     -  RETRIEVE_SYSLOG_MSG
+    supportedTransactions:
+      - transaction : ITI-81
+        optionality : optional
+        actAs : initiator
+      - transaction : ITI-82
+        optionality : optional
+        actAs : initiator
+    requires : 
+      - and : 
+        - CT / TIME_CLIENT, 
+        - or : 
+          - ATNA / SN
+          - ATNA / SA
+        - or : 
+          - ATNA / AUDIT_CONSUMER / RETRIEVE_AUDIT_MSG
+          - ATNA / AUDIT_CONSUMER / RETRIEVE_SYSLOG_MSG

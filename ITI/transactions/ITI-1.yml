@@ -1,0 +1,9 @@
+id : ITI-1
+name : Maintain time
+version : 20.0
+description : NTP transactions used to maintain time synchronization.
+status: Final text
+documentation: https://profiles.ihe.net/ITI/TF/Volume2/ITI-1.html
+standards: 
+  - NTP
+  - SNTP 
