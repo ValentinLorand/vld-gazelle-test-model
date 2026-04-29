@@ -1,0 +1,94 @@
+{
+  "id": "vld-test1",
+  "name": "VLD Test 1",
+  "summary": "This test is very basic it's just an assert equals",
+  "description": "This tests is very basic",
+  "tags": [
+    "ASSERT",
+    "No peer"
+  ],
+  "testRoles": [],
+  "supportedInputs": [],
+  "steps": [
+    {
+      "name": "Simple assert equals step",
+      "type": "ASSERT_EQUALS",
+      "properties": [
+        {
+          "name": "expected",
+          "value": "test",
+          "type": "STRING"
+        },
+        {
+          "name": "actual",
+          "value": "test",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "Simple assert equals step",
+      "type": "ASSERT_EQUALS",
+      "properties": [
+        {
+          "name": "expected",
+          "value": "test",
+          "type": "STRING"
+        },
+        {
+          "name": "actual",
+          "value": "test",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "Simple assert equals step",
+      "type": "ASSERT_EQUALS",
+      "properties": [
+        {
+          "name": "expected",
+          "value": "test",
+          "type": "STRING"
+        },
+        {
+          "name": "actual",
+          "value": "test",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "Simple assert equals step",
+      "type": "ASSERT_EQUALS",
+      "properties": [
+        {
+          "name": "expected",
+          "value": "test",
+          "type": "STRING"
+        },
+        {
+          "name": "actual",
+          "value": "test",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "Simple assert equals step",
+      "type": "ASSERT_EQUALS",
+      "properties": [
+        {
+          "name": "expected",
+          "value": "test",
+          "type": "STRING"
+        },
+        {
+          "name": "actual",
+          "value": "test",
+          "type": "STRING"
+        }
+      ]
+    }
+  ]
+}

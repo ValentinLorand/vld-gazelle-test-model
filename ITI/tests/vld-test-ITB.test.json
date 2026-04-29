@@ -1,6 +1,6 @@
 {
-  "id": "mhd-itb.test.json",
-  "name": "MHD ITI-65 Scenario on ITB",
+  "id": "vld-test-ITB",
+  "name": "VLD MHD ITI-65 Scenario on ITB",
   "summary": "Test the capacity of the system to receive MHD DocumentReference and to respond to query/retrieve transactions.",
   "description": "<p>Execute MHD ITI-65 Scenario<br/>[Arguments]    ${BUNDLE_FILE}    ${SERVER_URL}</p><p><b>GIVEN</b> a test context is initialized with bundle, server and mode    ${BUNDLE_FILE}    ${SERVER_URL}<br/><b>AND</b> a Patient Resource exists on the Server<br/><b>WHEN</b> Client sends a valid MHD ITI-65 transaction bundle for that patient to the Server</br><b>THEN</b> the server shall return HTTP response code 201 created<br/><b>AND</b> the response bundle shall contain the DocumentReference<br/><b>AND</b> a Get for the DocumentReference with resource.id shall return the submitted DocumentReference<br/><b>AND</b> a GET for the referenced document shall return the document.</p>",
   "tags": [

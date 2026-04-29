@@ -1,4 +1,4 @@
-# ihe-connectathon-gazelle-content
+# vld test model
 
 This project is aimed at gathering all the resources which are needed by the Gazelle test bed in the context of the IHE Connectathons: the interoperability model, the test cases, the test data, and any configuration files necessary for the proper functionning of the test bed.
 

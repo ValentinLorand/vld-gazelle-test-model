@@ -1,20 +1,33 @@
 {
-  "id": "fhir-capability-statement-check",
-  "name": "FHIR Capability Statement check",
+  "id": "vld-fhir-capability-statement-check",
+  "name": "VLD FHIR Capability Statement check",
   "summary": "Test systems (mainly servers) that support FHIR-based IHE profiles share and verify their CapabilityStatement.",
   "description": "<p>The <b>CapabilityStatement</b> Resource helps others at the Connectathon (test partners, monitors) understand the implementation of FHIR-based actors on your server. Some IHE Profiles may also require that client actors publish a CapabilityStatement to document the FHIR Resources it supports, e.g. this is required for IHE RAD IRA actors including Report Creator.<br/>You will create a FHIR CapabilityStatement Resource that represents the HL7® FHIR® capabilities in your product. Then:</p><ol><li>Upload the FHIR CapabilityStatement resource (XML or JSON) as input of this test.</li><li>We expect you to be able to respond to a FHIR capabilities interaction (https://www.hl7.org/fhir/http.html#capabilities) to make your CapabilityStatement available to test partners and monitors.</li></ul><p>During the evaluation, the Connectathon monitor will retrieve and review your CapabilityStatement.</p>",
-  "tags": ["FHIR", "No peer"],
-  "testRoles": [ {
+  "tags": [
+    "FHIR",
+    "No peer"
+  ],
+  "testRoles": [
+    {
       "name": "FHIR Server",
       "capabilities": {
         "or": [
-          { "capability": "MHD/*" },
-          { "capability": "PDQm/*" },
-          { "capability": "PIXm/*" },
-          { "capability": "mCSD/*" }
+          {
+            "capability": "MHD/*"
+          },
+          {
+            "capability": "PDQm/*"
+          },
+          {
+            "capability": "PIXm/*"
+          },
+          {
+            "capability": "mCSD/*"
+          }
         ]
       }
-    } ],
+    }
+  ],
   "supportedInputs": [
     {
       "id": "capability_stmt",
