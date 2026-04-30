@@ -28,16 +28,17 @@
     },
     {
       "name": "Simple instruction step",
-      "type": "INSTRUCTION",
+      "description": "This step provides a simple instruction for the test",
+      "type": "USER_INTERACTION",
       "properties": [
         {
-          "name": "expected",
-          "value": "test",
+          "name": "interactionTitle",
+          "value": "Please read this instruction carefully",
           "type": "STRING"
         },
         {
-          "name": "actual",
-          "value": "test",
+          "name": "message",
+          "value": "Please follow the instructions carefully. This is a simple instruction step to demonstrate the USER_INTERACTION step type.",
           "type": "STRING"
         }
       ]

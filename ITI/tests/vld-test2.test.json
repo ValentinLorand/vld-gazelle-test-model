@@ -60,6 +60,7 @@
       },
       {
         "name": "Simple_CHXDS_ITI-41-42",
+        "description": "This step is simulating a simple CHXDS ITI-41-42 transaction with the Mock_XDS_Simulator",
         "type": "SIMULATION",
         "properties": [
           {
