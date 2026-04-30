@@ -1,0 +1,78 @@
+{
+  "id": "vld-test3",
+  "name": "VLD Test 3",
+  "summary": "This test is very basic it's just an assert equals",
+  "description": "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\" /><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/><title>eHealth Interop Test</title><style>body { font-family: Arial, sans-serif; margin: 16px; } header, footer { background: #f0f0f0; padding: 8px; } table { border-collapse: collapse; width: 100%; margin-top: 12px; } th, td { border: 1px solid #ccc; padding: 6px; text-align: left; } .highlight { color: #b00; font-weight: bold; }</style></head><body><header><h1>eHealth Interoperability Test</h1><p role=\"doc-subtitle\">Sample patient summary</p></header><section><h2>Patient Info</h2><ul><li><strong>ID:</strong> <span data-type=\"identifier\">123456</span></li><li><strong>Name:</strong> John Doe</li><li><strong>DOB:</strong> <time datetime=\"1980-05-12\">May 12, 1980</time></li><li><strong>Allergies:</strong> <span class=\"highlight\">Penicillin</span></li></ul></section><section><h2>Observations</h2><table aria-label=\"Vital signs\"><thead><tr><th>Type</th><th>Value</th><th>Unit</th><th>Date</th></tr></thead><tbody><tr><td>Heart Rate</td><td>72</td><td>bpm</td><td><time datetime=\"2026-04-30\">2026-04-30</time></td></tr><tr><td>Blood Pressure</td><td>120/80</td><td>mmHg</td><td><time datetime=\"2026-04-30\">2026-04-30</time></td></tr></tbody></table></section><section><h2>Medication Form</h2><form><label>Drug name:<input type=\"text\" name=\"drug\" value=\"Amoxicillin\"/></label><br/><br/><label>Dosage:<input type=\"number\" name=\"dosage\" value=\"500\"/> mg</label><br/><br/><label>Route:<select name=\"route\"><option>Oral</option><option>IV</option></select></label><br/><br/><label>Active:<input type=\"checkbox\" checked /></label></form></section><section><h2>Embedded Structured Data</h2><script type=\"application/json\" id=\"patient-json\">{\"resourceType\":\"Patient\",\"id\":\"123456\",\"name\":[{\"family\":\"Doe\",\"given\":[\"John\"]}],\"birthDate\":\"1980-05-12\"}</script></section><footer><p>&copy; Test System</p></footer></body></html>",
+  "tags": [
+    "ASSERT",
+    "No peer"
+  ],
+  "testRoles": [],
+  "supportedInputs": [],
+  "steps": [
+    {
+      "name": "Simple assert equals step 1",
+      "type": "ASSERT_EQUALS",
+      "properties": [
+        {
+          "name": "expected",
+          "value": "test",
+          "type": "STRING"
+        },
+        {
+          "name": "actual",
+          "value": "test",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "Simple instruction step",
+      "type": "INSTRUCTION",
+      "properties": [
+        {
+          "name": "expected",
+          "value": "test",
+          "type": "STRING"
+        },
+        {
+          "name": "actual",
+          "value": "test",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "Simple assert equals step 3",
+      "type": "ASSERT_EQUALS",
+      "properties": [
+        {
+          "name": "expected",
+          "value": "test",
+          "type": "STRING"
+        },
+        {
+          "name": "actual",
+          "value": "test",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "Simple assert equals step 4",
+      "type": "ASSERT_EQUALS",
+      "properties": [
+        {
+          "name": "expected",
+          "value": "test",
+          "type": "STRING"
+        },
+        {
+          "name": "actual",
+          "value": "test",
+          "type": "STRING"
+        }
+      ]
+    }
+  ]
+}
